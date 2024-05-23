@@ -2,8 +2,16 @@ module ApplicationHelper
     def string_calculator(input)
         return 0 if input.blank?
 
+        if input.include?('//')
+            delimiter = input[2] 
+            str_arr = input[5..]
+        else
+            delimiter = ','
+            str_arr = input
+        end
 
-        str_arr = input.gsub('\n',',').split(',')
+        str_arr = str_arr.gsub('\n', ',').split(delimiter)
+
         sum = 0
         negative_num = []
         str_arr.each do |num|
