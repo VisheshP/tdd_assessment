@@ -4,17 +4,17 @@ module ApplicationHelper
 
         if input.include?('//')
             delimiter = input[2] 
-            str_arr = input[5..]
         else
             delimiter = ','
-            str_arr = input
         end
 
-        str_arr = str_arr.gsub('\n', ',').split(delimiter)
+        input = input[5..] if !delimiter.include?(',')
+
+        input = input.gsub('\n', ',').split(delimiter)
 
         sum = 0
         negative_num = []
-        str_arr.each do |num|
+        input.each do |num|
             int_num = num.to_i
             if int_num != 0
                 negative_num << int_num if int_num < 0
