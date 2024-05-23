@@ -3,7 +3,7 @@ module ApplicationHelper
         return 0 if input.blank?
 
 
-        str_arr = input.gsub('\n','').split(',')
+        str_arr = input.gsub('\n',',').split(',')
         sum = 0
         negative_num = []
         str_arr.each do |num|
