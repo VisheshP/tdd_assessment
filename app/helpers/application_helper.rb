@@ -2,9 +2,7 @@ module ApplicationHelper
     def string_calculator(input)
         return 0 if input.blank?
 
-        negative_num = []
         delimiter = ','
-
         delimiter = input[2] if input.starts_with?('//')
 
         input = input[5..] if !delimiter.include?(',')
